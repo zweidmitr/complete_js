@@ -171,8 +171,6 @@ if (marksBMI > johnBMI) {
   console.log(`John's BMI (${johnBMI}) is higher than Mark's!`)
 }
 
-*/
-
 // type conversion
 const inputYear = '1991'
 console.log(Number(inputYear), inputYear)
@@ -191,3 +189,168 @@ console.log('23' / '2')
 let n = '1' + 1
 n = n - 1
 console.log(n) //10
+
+// 5 falsy value: 0, '', undefined, null, NaN
+
+console.log(Boolean(0))
+console.log(Boolean(undefined))
+console.log(Boolean(''))
+console.log(Boolean(null))
+console.log(Boolean(undefined))
+console.log(Boolean(NaN))
+console.log(Boolean({}))
+console.log(Boolean(10))
+
+const money = 100
+if (money) {
+  console.log("Don't spend it all")
+} else {
+  console.log('You should get a job!')
+}
+
+let height = 0
+if (height) {
+  console.log('YAY Height is difined')
+} else {
+  console.log('Height is UNDEFINED')
+}
+
+const age = '18'
+if (age === 18) console.log('You just became an adult (strict)')
+
+if (age == 18) console.log('You just became an adult (loose)')
+
+const favourite = Number(prompt("What's your favourite number?"))
+
+console.log(favourite)
+console.log(typeof favourite)
+
+if (favourite === 23) {
+  // '23' == 23
+  console.log('Cool 23 is amazing number')
+} else if (favourite === 7) {
+  console.log('7 is also a cool number')
+} else if (favourite === 9) {
+  console.log('9 is also a cool number')
+} else {
+  console.log('Number is not 23 or 7 or 9')
+}
+
+if (favourite !== 23) console.log('Why not 23?')
+
+const hasDriversLicense = true
+const hasGoodVision = true
+
+console.log(hasDriversLicense && hasGoodVision)
+console.log(hasDriversLicense || hasGoodVision)
+console.log(!hasDriversLicense)
+
+const shouldDrive = hasDriversLicense && hasGoodVision
+
+// if (shouldDrive) {
+//   console.log('Sarah is able to drive!')
+// } else {
+//   console.log('Someone else should drive')
+// }
+
+const isTired = false
+console.log(hasDriversLicense && hasGoodVision && isTired)
+
+if (shouldDrive && hasDriversLicense && !isTired) {
+  console.log('Sarah is able to drive!')
+} else {
+  console.log('Someone else should drive')
+}
+
+// const scoreDolphins = (96 + 108 + 89) / 3
+// const scoreKoalas = (88 + 91 + 110) / 3
+// console.log(scoreDolphins, scoreKoalas)
+
+// if (scoreDolphins > scoreKoalas) {
+//   console.log('Dophins win the trophy')
+// } else if (scoreKoalas > scoreDolphins) {
+//   console.log('Koalas win the trophy')
+// } else if (scoreKoalas === scoreDolphins) {
+//   console.log('Both win the trophy')
+// }
+
+//BONUS 1
+const scoreDolphins = (97 + 112 + 80) / 3
+const scoreKoalas = (109 + 95 + 50) / 3
+console.log(scoreDolphins, scoreKoalas)
+if (scoreDolphins > scoreKoalas && scoreDolphins >= 100) {
+  console.log('Dophins win the trophy')
+} else if (scoreKoalas > scoreDolphins && scoreKoalas >= 100) {
+  console.log('Koalas win the trophy')
+} else if (
+  scoreKoalas === scoreDolphins &&
+  scoreDolphins >= 100 &&
+  scoreKoalas >= 100
+) {
+  console.log('Both win the trophy')
+} else {
+  console.log('No one wins the trophy')
+}
+
+const day = 'wednesday'
+
+switch (day) {
+  case 'monday': // day == 'monday'
+    console.log('Plan course structure')
+    console.log('Go to coding meetup')
+    break
+  case 'tuesday':
+    xonsole.log('Prepare therory videos')
+    break
+  case 'wednesday':
+  case 'thursday':
+    console.log('Write code examples')
+  case 'friday':
+    console.log('Record videos')
+    break
+  case 'saturday':
+  case 'sunday':
+    console.log('Enjoy the weekend')
+    break
+  default:
+    console.log('not a valid day!')
+}
+
+3 + 4
+1991
+true && false && !false
+
+if (23 > 10) {
+  const str = '23 is bigger'
+}
+
+const me = 'Jonas'
+console.log(`I'm ${2037 - 1991} years old ${me}`)
+
+
+const age = 23
+age >= 18
+  ? console.log('I like to drink wine')
+  : console.log('I like drink water')
+
+const drink = age >= 18 ? 'wine' : 'water'
+console.log(drink)
+
+let drink2
+if (age >= 18) {
+  drink2 = 'wine'
+} else {
+  drink2 = 'water'
+}
+console.log(drink2)
+console.log(`I like to drink ${age >= 18 ? 'wine' : 'water'}`)
+
+
+const bill = 275
+const tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2
+
+console.log(
+  `The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`
+)
+
+*/
