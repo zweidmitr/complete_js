@@ -187,8 +187,6 @@ if (friends.includes('Peter')) {
   console.log('you have a friend called Peter')
 }
 
-*/
-
 function calcTip(bill) {
   return bill >= 50 && bill <= 300 ? 0.15 * bill : 0.2 * bill
 }
@@ -202,3 +200,82 @@ total.push(bills[0] + tips[0])
 total.push(bills[1] + tips[1])
 total.push(bills[2] + tips[2])
 console.log(total)
+
+
+const jonas = {
+  firstName: 'Jonas',
+  lastName: 'Schmedtmann',
+  age: 2037 - 1991,
+  job: 'teacher',
+  friends: ['Michael', 'Peter', 'Steven'],
+}
+
+console.log(jonas)
+
+console.log(jonas.lastName)
+console.log(jonas['lastName'])
+
+const nameKey = 'Name'
+console.log(jonas['first' + nameKey])
+console.log(jonas['last' + nameKey])
+
+const inerestedIn = prompt(
+  'What do you want to know about Jonas? Choose between firstName, lastName, age, job, and friends'
+)
+
+if (jonas[inerestedIn]) {
+  console.log(jonas[inerestedIn])
+} else {
+  console.log(
+    'Wrong request! Choose between firstName, lastName, age, job, and friends'
+  )
+}
+
+jonas.location = 'Portugal'
+jonas['teitter'] = '@jonasschmedtman'
+console.log(jonas)
+
+// Challenge
+// "Jonas has 3 friends, and his best friend is called Michael"
+console.log(
+  `${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`
+)
+
+*/
+
+const jonas = {
+  firstName: 'Jonas',
+  lastName: 'Schmedtmann',
+  birthYear: 1991,
+  job: 'teacher',
+  friends: ['Michael', 'Peter', 'Steven'],
+  hasDriversLicense: false,
+
+  // calcAge: function (birthYear) {
+  //   return 2037 - birthYear
+  // },
+
+  // calcAge: function () {
+  //   // console.log(this)
+  //   return 2037 - this.birthYear
+  // },
+
+  calcAge: function () {
+    this.age = 2037 - this.birthYear
+    return this.age
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${
+      this.job
+    }, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license`
+  },
+}
+
+console.log(jonas.calcAge())
+
+console.log(jonas.age)
+console.log(jonas.age)
+console.log(jonas.age)
+
+console.log(jonas.getSummary())
