@@ -1,233 +1,53 @@
 'use strict'
-/*
-function calcAge(birthYear) {
-  const age = 2037 - birthYear
 
-  function printAge() {
-    let output = `${firstName}, you are ${age}, born in ${birthYear}`
-    console.log(output)
+// Data needed for a later exercise
+// const flights =
+//   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-    if (birthYear >= 1981 && birthYear <= 1996) {
-      var millenial = true
-      // create new variable with same name as outher scope's variable
-      const firstName = 'Steven'
-      // reassigning outer sxope's variable
-      output = 'NEW OUTPUT!'
+// Data needed for first part of the section
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-      const str = `Oh, and you're a millenial, ${firstName}`
-      console.log(str)
-
-      function add(a, b) {
-        return a + b
-      }
-    }
-    // console.log(str)
-    console.log(millenial)
-    // console.log(add(2, 3))
-    console.log(output)
-  }
-  printAge()
-
-  return age
-}
-
-const firstName = 'Jonas'
-calcAge(1991)
-// console.log(age)
-// printAge()
-
-
-// Variables
-// console.log(me)
-// console.log(year)
-// console.log(job)
-
-var me = 'Jonas'
-let job = 'teacher'
-const year = 1991
-
-// Function
-// console.log(addDecl(2, 3))
-// console.log(addExpr(5, 5))
-// console.log(addArrow)
-// console.log(addArrow(5, 5))
-
-function addDecl(a, b) {
-  return a + b
-}
-
-const addExpr = function (a, b) {
-  return a + b
-}
-
-var addArrow = (a, b) => a + b
-
-// Example
-
-console.log(!numProducts)
-if (!numProducts) deleteShoppingCart()
-
-var numProducts = 10
-
-function deleteShoppingCart() {
-  console.log('All products deleted!')
-}
-
-var x = 1
-let y = 2
-const z = 3
-
-console.log(x === window.x)
-console.log(y === window.y)
-console.log(z === window.xz)
-
-
-console.log(this)
-
-const calcAge = function (birthYear) {
-  console.log(2037 - birthYear)
-  console.log(this)
-}
-calcAge(1991)
-
-function calc(birthYear) {
-  console.log(2037 - birthYear)
-  console.log(this)
-}
-calc(2000)
-
-const calcAgeArrow = birthYear => {
-  console.log(2037 - birthYear)
-  console.log(this)
-}
-calcAgeArrow(1980)
-
-const jonas = {
-  year: 1991,
-  calcAge: function () {
-    console.log(this)
-    console.log(2037 - this.year)
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
   },
 }
 
-jonas.calcAge()
+const arr = [2, 3, 4]
+const a = arr[0]
+const b = arr[1]
+const c = arr[2]
 
-const matilda = {
-  year: 2017,
-}
+const [x, y, z] = arr
+console.log(x, y, z)
+console.log(arr)
 
-matilda.calcAge = jonas.calcAge
+const [main, , secondary] = restaurant.categories
 
-// console.log(matilda)
-matilda.calcAge()
+console.log(main, secondary)
 
-const f = jonas.calcAge
+// Switching variables
+// const temp = main
+// main = secondary
+// secondary = temp
+// console.log(main, secondary)
+// ;[main, secondary] = [secondary, main]
+// console.log(main, secondary)
 
-f(2000)
+// Receive 2 return values from a function
+let [starter, mainCourse] = restaurant.order(2, 0)
+console.log(starter, mainCourse)
 
+// Nested destructuring
+const nested = [2, 4, [5, 6]]
+// const [i, , j] = nested
+const [i, , [j, k]] = nested
+console.log(i, j, k)
 
-// var firstName = 'Matilda'
-
-const jonas = {
-  firstName: 'Jonas',
-  year: 1991,
-  calcAge: function () {
-    console.log(this)
-    console.log(2037 - this.year)
-
-    // Solution 1
-    // const self = this // self or that
-    // const isMillenial = function () {
-    //   console.log(self)
-    //   console.log(self.year >= 1981 && self.year <= 1996)
-    // }
-    // isMillenial()
-
-    // Solution 2
-    const isMillenial = () => {
-      console.log(this)
-      console.log(this.year >= 1981 && this.year <= 1996)
-    }
-    isMillenial()
-  },
-  greet: function () {
-    console.log(this)
-    console.log(`Hey ${this.firstName}`)
-  },
-}
-
-jonas.greet()
-jonas.calcAge()
-
-
-// Arguments keyword
-const addExpr = function (a, b) {
-  console.log(arguments)
-  return a + b
-}
-
-addExpr(2, 5)
-addExpr(2, 5, 8, 12)
-
-var addArrow = (a, b) => {
-  console.log(arguments)
-  return a + b
-}
-addArrow(2, 5, 8)
-
-let age = 30
-let oldAge = age
-age = 31
-console.log(age)
-console.log(oldAge)
-
-const me = {
-  name: 'Jonas',
-  age: 30,
-}
-const friend = me
-friend.age = 27
-
-console.log('Friend:', friend)
-console.log('Me:', me)
-
-*/
-
-// Primitive types
-let lastName = 'Williams'
-let oldLastName = lastName
-lastName = 'Davis'
-console.log(lastName, oldLastName)
-
-// Reference types
-const jessica = {
-  firstName: 'Jessica',
-  lastName: 'Williams',
-  age: 27,
-}
-
-const marriedJessica = jessica
-
-marriedJessica.lastName = 'Davis'
-console.log('Before marriage:', jessica)
-console.log('After marriage:', marriedJessica)
-
-// marriedJessica = {}
-
-// Copying objects
-
-const jessica2 = {
-  firstName: 'Jessica',
-  lastName: 'Williams',
-  age: 27,
-  family: ['Alica', 'Bob'],
-}
-
-const jessicaCopy = Object.assign({}, jessica2)
-jessicaCopy.lastName = 'Davis'
-
-jessicaCopy.family.push('Mary')
-jessicaCopy.family.push('John')
-
-console.log('Before marriage:', jessica2)
-console.log('After marriage:', jessicaCopy)
+// Default values
+const [p = 1, q = 1, r = 1] = [8, 9]
+console.log(p, q, r)
