@@ -54,6 +54,13 @@ const [p = 1, q = 1, r = 1] = [8, 9]
 console.log(p, q, r)
 */
 
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+const openingHours = {
+  [weekdays[3]]: { open: 12, close: 22 },
+  [weekdays[4]]: { open: 11, close: 23 },
+  [weekdays[5]]: { open: 0, close: 24 },
+}
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -61,31 +68,24 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours: {
-    th: { open: 12, close: 22 },
-    fri: { open: 11, close: 23 },
-    sat: { open: 0, close: 24 },
-  },
+  // ES6 enchanced object literals
+  openingHours,
 
-  order: function (starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
   },
-  orderDelivery: function ({
-    starterIndex = 1,
-    mainIndex = 0,
-    time = '20:00',
-    address,
-  }) {
+
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
     console.log(
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     )
   },
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(
       `Here is your declicious paste eith ${ing1},${ing2} and ${ing3}`
     )
   },
-  orderPizza: function (mainIngredient, ...otherIngredients) {
+  orderPizza(mainIngredient, ...otherIngredients) {
     console.log(mainIngredient)
     console.log(otherIngredients)
   },
@@ -364,3 +364,13 @@ team1 < team2 && console.log('Team 1 is more likely to win')
 team1 > team2 && console.log('Team 2 is more likely to win')
 
 */
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu]
+
+for (const item of menu) console.log(item)
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1} : ${el}`)
+}
+
+// console.log([...menu.entries()])
