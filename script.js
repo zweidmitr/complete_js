@@ -91,6 +91,7 @@ const restaurant = {
   },
 }
 
+/*
 // propery NAMES
 const properties = Object.keys(openingHours)
 // console.log(properties)
@@ -114,7 +115,7 @@ const entries = Object.entries(openingHours)
 for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}`)
 }
-/*
+
 if (restaurant.openingHours && restaurant.openingHours.mon)
   console.log(restaurant.openingHours.mon.open)
 
@@ -339,7 +340,7 @@ rest2.owner &&= '<ANONYMOUS>'
 
 console.log(rest1)
 console.log(rest2)
-
+*/
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -375,12 +376,31 @@ const game = {
   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
   date: 'Nov 9th, 2037',
   odds: {
-    team1: 11.33,
+    team1: 1.33,
     x: 3.25,
     team2: 6.5,
   },
 }
 
+// 1.
+for (const [index, players] of game.scored.entries())
+  console.log(`Goal ${index + 1} : ${players}`)
+
+// 2.
+const odds = Object.values(game.odds)
+let average = 0
+for (const odd of odds) average += odd
+
+average /= odds.length
+console.log(Math.trunc(average))
+
+// 3.
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`
+  console.log(`Odd of ${teamStr} ${odd}`)
+}
+
+/*
 // 1.
 const [players1, players2] = game.players
 console.log(players1, players2)
